@@ -20,5 +20,4 @@ public class CarTest {
         assertThat(car1.getDistance()).isEqualTo(1);
         assertThat(car2.getDistance()).isEqualTo(0);
     }
-
 }
