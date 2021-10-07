@@ -2,6 +2,7 @@ package racinggame.domain;
 
 import nextstep.utils.Randoms;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.MockedStatic;
@@ -14,6 +15,22 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
 
 public class CarsTest {
+
+    @ParameterizedTest
+    @CsvSource(value = {"4, true", "3, false", "5, true"})
+    @DisplayName("randomNo에 따라 전진해도 되는지 여부")
+    void isMove(int randomNo, boolean expectResult) throws Exception {
+        // given
+        Method isMove = Cars.class.getDeclaredMethod("isMove", int.class);
+        isMove.setAccessible(true);
+
+        Cars cars = new Cars(Arrays.asList(new Car("car")));
+        // when
+        boolean result = (boolean) isMove.invoke(cars, randomNo);
+
+        // then
+        assertThat(result).isEqualTo(expectResult);
+    }
 
     @ParameterizedTest
     @CsvSource(value = {"4, 1", "3, 0", "5, 1"})

@@ -22,8 +22,13 @@ public class Cars {
     }
 
     private void moveByRandomNo(Car car) {
-        if (Randoms.pickNumberInRange(MIN_NO, MAX_NO) >= MIN_MOVE_NO) {
+        int randomNo = Randoms.pickNumberInRange(MIN_NO, MAX_NO);
+        if (isMove(randomNo)) {
             car.move();
         }
+    }
+
+    private boolean isMove(int randomNo) {
+        return randomNo >= MIN_MOVE_NO;
     }
 }
