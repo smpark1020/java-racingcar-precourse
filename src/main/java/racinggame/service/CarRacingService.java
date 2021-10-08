@@ -23,4 +23,9 @@ public class CarRacingService {
         return cars.getCars();
     }
 
+    public List<String> getWinners(List<Car> carList) {
+        Cars cars = Cars.create(carList);
+        return cars.getWinners();
+    }
+
 }
