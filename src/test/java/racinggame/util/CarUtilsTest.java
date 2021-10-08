@@ -27,9 +27,6 @@ class CarUtilsTest {
         assertThat(carList.get(0).getDistance().getValue()).isEqualTo(0);
         assertThat(carList.get(1).getDistance().getValue()).isEqualTo(0);
         assertThat(carList.get(2).getDistance().getValue()).isEqualTo(0);
-        assertThat(carList.get(0).isMove().getValue()).isFalse();
-        assertThat(carList.get(1).isMove().getValue()).isFalse();
-        assertThat(carList.get(2).isMove().getValue()).isFalse();
     }
 
     @Test

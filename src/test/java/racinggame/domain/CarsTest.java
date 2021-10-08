@@ -35,9 +35,9 @@ public class CarsTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"4, 1, true", "3, 0, false", "5, 1, true"})
+    @CsvSource(value = {"4, 1", "3, 0", "5, 1"})
     @DisplayName("randomNo에 따라 자동차 전진")
-    void moveByRandomNo(int randomNo, int distance, boolean isMove) throws Exception {
+    void moveByRandomNo(int randomNo, int distance) throws Exception {
         try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             // given
             Method moveByRandomNo = Cars.class.getDeclaredMethod("moveByRandomNo", Car.class);
@@ -54,7 +54,6 @@ public class CarsTest {
 
             // then
             assertThat(car.getDistance().getValue()).isEqualTo(distance);
-            assertThat(car.isMove().getValue()).isEqualTo(isMove);
         }
     }
 
@@ -77,11 +76,8 @@ public class CarsTest {
 
             // then
             assertThat(car1.getDistance().getValue()).isEqualTo(distance);
-            assertThat(car1.isMove().getValue()).isEqualTo(isMove);
             assertThat(car2.getDistance().getValue()).isEqualTo(distance);
-            assertThat(car2.isMove().getValue()).isEqualTo(isMove);
             assertThat(car3.getDistance().getValue()).isEqualTo(distance);
-            assertThat(car3.isMove().getValue()).isEqualTo(isMove);
         }
     }
 

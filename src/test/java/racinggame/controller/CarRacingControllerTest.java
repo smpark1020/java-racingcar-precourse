@@ -20,9 +20,9 @@ class CarRacingControllerTest {
     CarRacingController carRacingController = CarRacingController.getInstance();
 
     @ParameterizedTest
-    @CsvSource(value = {"4, 1, true", "3, 0, false", "5, 1, true"})
+    @CsvSource(value = {"4, 1", "3, 0", "5, 1"})
     @DisplayName("자동차 경주")
-    void 자동차_경주(int randomNo, int distance, boolean isMove) {
+    void 자동차_경주(int randomNo, int distance) {
         try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             // given
             mockRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
@@ -42,9 +42,6 @@ class CarRacingControllerTest {
             assertThat(resultCarList.get(0).getDistance().getValue()).isEqualTo(distance);
             assertThat(resultCarList.get(1).getDistance().getValue()).isEqualTo(distance);
             assertThat(resultCarList.get(2).getDistance().getValue()).isEqualTo(distance);
-            assertThat(resultCarList.get(0).isMove().getValue()).isEqualTo(isMove);
-            assertThat(resultCarList.get(1).isMove().getValue()).isEqualTo(isMove);
-            assertThat(resultCarList.get(2).isMove().getValue()).isEqualTo(isMove);
         }
     }
 
