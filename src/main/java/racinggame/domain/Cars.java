@@ -16,6 +16,10 @@ public class Cars {
         this.cars = cars;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public void race() {
         for (Car car : cars) {
             moveByRandomNo(car);
@@ -60,5 +64,9 @@ public class Cars {
             maxDistance = Math.max(maxDistance, car.getDistance().getValue());
         }
         return maxDistance;
+    }
+
+    public static Cars create(List<Car> carList) {
+        return new Cars(carList);
     }
 }
