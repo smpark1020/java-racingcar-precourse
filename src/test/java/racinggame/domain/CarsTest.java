@@ -2,12 +2,15 @@ package racinggame.domain;
 
 import nextstep.utils.Randoms;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.MockedStatic;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -76,5 +79,32 @@ public class CarsTest {
             assertThat(car2.getDistance().getValue()).isEqualTo(distance);
             assertThat(car3.getDistance().getValue()).isEqualTo(distance);
         }
+    }
+
+    @Test
+    @DisplayName("우승자 조회")
+    void 우승자_조회() {
+        // given
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        Car car3 = new Car("car3");
+
+        car1.move();
+        car2.move();
+
+        List<Car> carList = new ArrayList<>();
+        carList.add(car1);
+        carList.add(car2);
+        carList.add(car3);
+
+        Cars cars = new Cars(carList);
+
+        // when
+        List<String> winners = cars.getWinners();
+
+        // then
+        assertThat(winners).contains(car1.getName().getValue());
+        assertThat(winners).contains(car2.getName().getValue());
+        assertThat(winners).doesNotContain(car3.getName().getValue());
     }
 }
