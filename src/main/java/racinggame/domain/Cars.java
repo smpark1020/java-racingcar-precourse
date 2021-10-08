@@ -26,7 +26,9 @@ public class Cars {
         int randomNo = Randoms.pickNumberInRange(MIN_NO, MAX_NO);
         if (isMove(randomNo)) {
             car.move();
+            return;
         }
+        car.stop();
     }
 
     private boolean isMove(int randomNo) {
