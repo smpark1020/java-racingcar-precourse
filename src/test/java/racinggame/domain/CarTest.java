@@ -17,7 +17,7 @@ public class CarTest {
         car1.move();
 
         // then
-        assertThat(car1.getDistance()).isEqualTo(1);
-        assertThat(car2.getDistance()).isEqualTo(0);
+        assertThat(car1.getDistance().getValue()).isEqualTo(1);
+        assertThat(car2.getDistance().getValue()).isEqualTo(0);
     }
 }

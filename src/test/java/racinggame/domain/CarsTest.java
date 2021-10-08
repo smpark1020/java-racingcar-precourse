@@ -2,7 +2,6 @@ package racinggame.domain;
 
 import nextstep.utils.Randoms;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.MockedStatic;
@@ -51,7 +50,7 @@ public class CarsTest {
             moveByRandomNo.invoke(cars, car);
 
             // then
-            assertThat(car.getDistance()).isEqualTo(distance);
+            assertThat(car.getDistance().getValue()).isEqualTo(distance);
         }
     }
 
@@ -73,9 +72,9 @@ public class CarsTest {
             cars.race();
 
             // then
-            assertThat(car1.getDistance()).isEqualTo(distance);
-            assertThat(car2.getDistance()).isEqualTo(distance);
-            assertThat(car3.getDistance()).isEqualTo(distance);
+            assertThat(car1.getDistance().getValue()).isEqualTo(distance);
+            assertThat(car2.getDistance().getValue()).isEqualTo(distance);
+            assertThat(car3.getDistance().getValue()).isEqualTo(distance);
         }
     }
 }

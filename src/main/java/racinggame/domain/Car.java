@@ -1,22 +1,23 @@
 package racinggame.domain;
 
 public class Car {
-    private String name;
-    private int distance;
+    private CarName name;
+    private MoveDistance distance;
 
     public Car(String name) {
-        this.name = name;
+        this.name = new CarName(name);
+        this.distance = new MoveDistance();
     }
 
-    public String getName() {
+    public CarName getName() {
         return name;
     }
 
-    public int getDistance() {
+    public MoveDistance getDistance() {
         return distance;
     }
 
-    public int move() {
-        return ++distance;
+    public void move() {
+        this.distance.move();
     }
 }
