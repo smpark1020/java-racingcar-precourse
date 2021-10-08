@@ -17,6 +17,9 @@ public class Car {
         return distance;
     }
 
+    /**
+     * 자동차 전진
+     */
     public void move() {
         this.distance.move();
     }

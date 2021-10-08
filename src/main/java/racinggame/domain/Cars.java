@@ -20,10 +20,29 @@ public class Cars {
         return cars;
     }
 
+    /**
+     * 자동차 경주 시작
+     */
     public void race() {
         for (Car car : cars) {
             moveByRandomNo(car);
         }
+    }
+
+    /**
+     * 우승자 조회
+     */
+    public List<String> getWinners() {
+        int maxDistance = getMaxDistance();
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            addWinners(maxDistance, winners, car);
+        }
+        return winners;
+    }
+
+    public static Cars create(List<Car> carList) {
+        return new Cars(carList);
     }
 
     private void moveByRandomNo(Car car) {
@@ -35,15 +54,6 @@ public class Cars {
 
     private boolean isMove(int randomNo) {
         return randomNo >= MIN_MOVE_NO;
-    }
-
-    public List<String> getWinners() {
-        int maxDistance = getMaxDistance();
-        List<String> winners = new ArrayList<>();
-        for (Car car : cars) {
-            addWinners(maxDistance, winners, car);
-        }
-        return winners;
     }
 
     private void addWinners(int maxDistance, List<String> winners, Car car) {
@@ -62,9 +72,5 @@ public class Cars {
             maxDistance = Math.max(maxDistance, car.getDistance().getValue());
         }
         return maxDistance;
-    }
-
-    public static Cars create(List<Car> carList) {
-        return new Cars(carList);
     }
 }

@@ -18,10 +18,16 @@ public class CarRacingController {
         return instance;
     }
 
+    /**
+     * 자동차 경주 시작
+     */
     public List<Car> race(List<Car> carList) {
         return carRacingService.race(carList);
     }
 
+    /**
+     * 우승자 조회
+     */
     public List<String> getWinners(List<Car> carList) {
         return carRacingService.getWinners(carList);
     }
