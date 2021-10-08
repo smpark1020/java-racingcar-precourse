@@ -22,4 +22,7 @@ public class CarRacingController {
         return carRacingService.race(carList);
     }
 
+    public List<String> getWinners(List<Car> carList) {
+        return carRacingService.getWinners(carList);
+    }
 }
