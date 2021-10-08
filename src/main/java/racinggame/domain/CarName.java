@@ -5,6 +5,10 @@ public class CarName {
 
     private String value;
 
+    public String getValue() {
+        return value;
+    }
+
     public CarName(String name) {
         if (isLongNameLength(name)) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다. (입력된 자동차 이름: " + name + ")");
@@ -14,9 +18,5 @@ public class CarName {
 
     private boolean isLongNameLength(String name) {
         return name.length() > LIMIT_LENGTH;
-    }
-
-    public String getValue() {
-        return value;
     }
 }
