@@ -1,7 +1,7 @@
 package racinggame.domain;
 
 public class CarName {
-    private static int LIMIT_LENGTH = 5;
+    private static final int LIMIT_LENGTH = 5;
 
     private String value;
 

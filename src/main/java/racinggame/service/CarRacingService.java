@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CarRacingService {
 
-    private static CarRacingService instance = new CarRacingService();
+    private static final CarRacingService instance = new CarRacingService();
 
     private CarRacingService() {
 

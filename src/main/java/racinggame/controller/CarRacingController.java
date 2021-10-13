@@ -6,7 +6,7 @@ import racinggame.service.CarRacingService;
 import java.util.List;
 
 public class CarRacingController {
-    private static CarRacingController instance = new CarRacingController();
+    private static final CarRacingController instance = new CarRacingController();
 
     private final CarRacingService carRacingService;
 
